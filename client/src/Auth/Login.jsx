@@ -17,7 +17,7 @@ export default function Login() {
 
     function Login(){
         if(username && password){
-            axios.post('http://localhost:3001/api/login',{username,password})
+            axios.post('http://localhost:3001/api/login',{username,password},{withCredentials:true})
             .then((res) => {
                 console.log(res);
                 if(res.data.status === 202){

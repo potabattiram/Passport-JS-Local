@@ -17,7 +17,7 @@ export default function SignUp() {
 
     function SignUp(){
         if(username && password){
-            axios.post('http://localhost:3001/api/signup',{username,password})
+            axios.post('http://localhost:3001/api/signup',{username,password},{withCredentials:true})
             .then((res) => {
                 console.log(res);
             })
@@ -51,7 +51,7 @@ export default function SignUp() {
                 </div>
 
                 <div id="buttonsDiv">
-                    <Button variant="contained" onClick={() => SignUp()}>Login</Button>
+                    <Button variant="contained" onClick={() => SignUp()}>Sign Up!</Button>
                 </div>
 
                 <h4>or continue with</h4>

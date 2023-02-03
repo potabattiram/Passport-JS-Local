@@ -3,23 +3,24 @@ const session = require('express-session');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const mongoStore = require('mongodb');
 
 const app = express();
-app.use(express.json());
-app.use(cookieParser());
+
 app.use(cors({
-    origin: '*',
-    methods: "GET, POST, PATCH, DELETE, PUT",
-    allowedHeaders: "Content-Type, Authorization",
+    origin: 'http://localhost:3000',
+    credentials: true
 }));
+
 app.use(session({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: false,
-    cookie: { maxAge: 1000 * 24 * 100 },
+    secret: 'my-secret-key',
+    resave: false,
+    saveUninitialized: true,
     cookie: { secure: false }
 }));
+
+app.use(express.json());
+app.use(cookieParser());
+
 app.use(passport.initialize());
 app.use(passport.session());
 
