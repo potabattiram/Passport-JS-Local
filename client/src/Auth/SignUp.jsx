@@ -56,7 +56,7 @@ export default function SignUp() {
 
                 <h4>or continue with</h4>
 
-                <div id="oauthDiv">
+                {/* <div id="oauthDiv">
                     <div id="oauthButtons">
                         <div className="iconButton">
                             <img src={google}  onClick={() => { googleOAuth();}} alt="google"/>
@@ -68,7 +68,7 @@ export default function SignUp() {
                             <img src={facebook} alt="facebook"/>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
 
                 <div className="registerMsg">

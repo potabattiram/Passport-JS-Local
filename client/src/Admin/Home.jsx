@@ -28,10 +28,12 @@ export default function Home() {
     }
     return (
         <>
-
             Admin Home
             <Button variant="contained" onClick={() => Logout()}>Log Out</Button>
-
+            
+            <div>
+                
+            </div>
         </>
     )
 }

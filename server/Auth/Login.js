@@ -44,7 +44,6 @@ passport.deserializeUser(function (user, cb) {
     });
 });
 
-
 // Create a route for handling the login request
 Router.post('/api/login', passport.authenticate('local', {
     successReturnToOrRedirect: '/success',
@@ -117,7 +116,5 @@ Router.post('/api/signup', (req, res) => {
         }
     })
 })
-
-
 
 module.exports = Router;
