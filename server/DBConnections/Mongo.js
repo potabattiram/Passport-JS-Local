@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = 'mongodb+srv://rampotabatti:RadhaGovindDev%40%23108@hma.rpyvgw6.mongodb.net/test';
+const uri = 'mongodb://localhost:27017/test';
 let client;
 
 async function main() {
