@@ -1,13 +1,13 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = 'mongodb://localhost:27017';
+const uri = 'mongodb+srv://rampotabatti:RadhaGovindDev%40%23108@hma.rpyvgw6.mongodb.net/test';
 let client;
 
 async function main() {
     client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     try {
         await client.connect();
-        console.log('connected to mongo db')
+        console.log('Connected to DB!')
     }
     catch(e){
         console.log(e)

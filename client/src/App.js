@@ -6,7 +6,7 @@ import LandingPage from './Auth/LandingPage';
 import Login from './Auth/Login';
 import SignUp from './Auth/SignUp';
 import axios from 'axios';
-import Protected from './Protected';
+import NewTry from './Admin/NewTry'
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/sign-up" element={<SignUp/>}/>
 
-        <Route exact path="/admin/home" element={<Home/>}/>
+        <Route exact path="/admin/home" element={<NewTry/>}/>
 
       </Routes>
     </>

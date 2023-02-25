@@ -6,7 +6,7 @@ const Connection = require('../DBConnections/Mongo');
 const Router = express.Router();
 
 passport.use(new LocalStrategy(function verify(username, password, done) {
-    Connection.client.db("test2").collection("auth").findOne(
+    Connection.client.db("HMA").collection("users").findOne(
         { username: username },
         function (err, Nextuser) {
             if (err) {
@@ -54,14 +54,14 @@ Router.get('/success', (req, res) => {
     res.send({
         message: 'Successfully Logged In',
         status: 202,
-        auth: req.isAuthenticated()
+       auth: req.isAuthenticated()
     });
 })
 Router.get('/failed', (req, res) => {
     res.send({
         message: 'Log In Failed',
         status: 403,
-        auth: req.isAuthenticated()
+       auth: req.isAuthenticated()
     });
 })
 
@@ -69,7 +69,7 @@ Router.get('/api/auth', (req, res) => {
     res.send({
         message: (req.isAuthenticated()) ? 'Authenticated' : 'Not Authenticated',
         status: (req.isAuthenticated()) ? 202 : 403,
-        auth: req.isAuthenticated()
+       auth: req.isAuthenticated()
     });
 })
 
@@ -79,13 +79,13 @@ Router.get('/api/logout', (req, res) => {
         res.send({
             message: 'Logged Out Success',
             status: 202,
-            auth: req.isAuthenticated()
+           auth: req.isAuthenticated()
         });
     });
 })
 
 Router.post('/api/signup', (req, res) => {
-    Connection.client.db("test2").collection("auth").findOne({ username: req.body.username }, (err, rows) => {
+    Connection.client.db("HMA").collection("users").findOne({ username: req.body.username }, (err, rows) => {
         if (err) { return err; }
         if (!rows) {
             const payload = {
@@ -96,7 +96,7 @@ Router.post('/api/signup', (req, res) => {
             const hash = bcrypt.hashSync(payload.password, salt);
             payload.password = hash;
 
-            Connection.client.db("test2").collection("auth").insertOne(payload, (err, success) => {
+            Connection.client.db("HMA").collection("users").insertOne(payload, (err, success) => {
                 if (err) {
                     return err;
                 }
